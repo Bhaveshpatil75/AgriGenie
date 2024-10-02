@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "463614582361",
+    "project_id": "cosine-13a7b",
+    "storage_bucket": "cosine-13a7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463614582361:android:2fcc5abbde43239da59b48",
+        "android_client_info": {
+          "package_name": "com.example.cosine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhVce8v2baKx6uIEBkXNqoZ-VPf9yvD5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
