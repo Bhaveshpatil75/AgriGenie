@@ -3,7 +3,7 @@ import 'package:cosine/pages/bot_chat_page.dart';
 import 'package:cosine/pages/weather_page.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'access_location.dart';
+import '../services/location/access_location.dart';
 
 class Demo extends StatefulWidget {
   const Demo({super.key});
@@ -57,12 +57,11 @@ class _DemoState extends State<Demo> {
   }
 }
 
-Future<void> showData()async{
+Future<Map<String,double>> showData()async{
   Position data=await determinePosition();
   lon=data.longitude;
   lat=data.latitude;
-  print("longitude : ${lon}");
-  print("latitude : ${lat}");
+  return {'longitude':lon,'latitude':lat};
 }
 Future<void> openSetts(bool loc)async{
   !loc? await Geolocator.openAppSettings():

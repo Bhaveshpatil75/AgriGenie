@@ -63,6 +63,7 @@ class _AddFarmerPageState extends State<AddFarmerPage> {
                 if (_formKey.currentState!.isValid){
                   _formKey.currentState!.saveAndValidate();
                   await _databaseService.addFarmer(_formKey.currentState!.value);
+
                 }
               }, child: Text("Submit")),
             ],

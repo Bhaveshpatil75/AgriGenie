@@ -7,10 +7,5 @@ Future<String> getWeather(double lat,double lon)async{
   //Weather w = await wf.currentWeatherByCityName(cityName);
   Weather w = await wf.currentWeatherByLocation(lat, lon);
   List<Weather> forecast = await wf.fiveDayForecastByLocation(lat, lon);
-  print(w.toString());
-  print("");
-  // forecast.forEach((val){
-  //   print(val.toString());
-  // });
   return w.toString();
 }

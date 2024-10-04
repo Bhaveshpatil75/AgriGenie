@@ -12,3 +12,16 @@ const farmQue=[
   "Size of the Farm?",
   "Do you have an employee to manage this farm?"
 ];
+
+const cropQue=[
+  "size",
+  "planted on",
+  "when did you last watered the crop?",
+  "when did you last fertilized the crop?",
+  "name of the fertilizer",
+  "quantity of fertilizer",
+  "which watering system is used for the crops?",
+  "In how many days can you water the crops repeatedly?",
+  "Any Animals or Birds which can be harmful for crops?",
+  "Name of the crop"
+];

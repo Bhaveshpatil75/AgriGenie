@@ -32,9 +32,10 @@ class DatabaseService{
          log(e.toString());
       }
    }
-   Future<List<dynamic>> getFarms()async{
-      QuerySnapshot querySnapshot=await farmerDB.doc(uid).collection("farms").get();
-      return querySnapshot.docs.map((doc)=>doc.id).toList();
+   Stream<List<dynamic>> getFarms(){
+      return farmerDB.doc(uid).collection("farms").snapshots()
+          .map((querySnapshot)=>querySnapshot.docs
+          .map((doc)=>doc.id).toList());
    }
    Future<Object?> getAfarm(String name)async{
       DocumentSnapshot snapshot=await farmerDB.doc(uid).collection("farms").doc(name).get();
@@ -64,9 +65,8 @@ class DatabaseService{
          log("Error adding CROP");
       }
    }
-   Future<List<dynamic>>getCrops(String farmName)async{
-      QuerySnapshot querySnapshot=await farmerDB.doc(uid).collection("farms").doc(farmName).collection("crops").get();
-      return querySnapshot.docs.map((doc)=>doc.id).toList();
+   Stream<List<dynamic>>getCrops(String farmName){
+      return farmerDB.doc(uid).collection("farms").doc(farmName).collection("crops").snapshots().map((snap)=>snap.docs.map((doc)=>doc.id).toList());
    }
    Future<Object?>getAcrop(String farmName,String cropName)async{
       DocumentSnapshot documentSnapshot=await farmerDB.doc(uid).collection("farms").doc(farmName).collection("crops").doc(cropName).get();

@@ -57,8 +57,8 @@ Drawer MyDrawer(BuildContext context){
             tileColor: Colors.deepPurple.shade100,
             title: Text("My Farms"),
             onTap: ()async{
-              List list=await databaseService.getFarms();
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowFarms(list: list,)));
+
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowFarms()));
             },
           ),
         ],

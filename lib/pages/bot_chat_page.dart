@@ -50,10 +50,10 @@ class _BotChatState extends State<BotChat> {
                   "you to act as a consultant to me,I want you to give me some suggestions "
                   "regarding some do's and don'ts about daily activities, here is the weather data: ${widget.data}");
               final resp=await chat.sendMessage(cont,);
-              ByteData catBytes = await rootBundle.load(widget.img!);
+              ByteData imgbytes = await rootBundle.load(widget.img!);
              // final imageUrl = await uploadImage(widget.img!);
               final c=Content.text("identify colors from this image. Also, here is an image for your reference:");
-              final p=Content.data("image/jpeg", catBytes as Uint8List);
+              final p=Content.data("image/jpeg", imgbytes as Uint8List);
               final r=await chat.sendMessage(c,p);
               //print(resp.text);
               print(r.text);

@@ -1,6 +1,7 @@
 import 'package:cosine/pages/addFarm_page.dart';
 import 'package:cosine/pages/add_farmer.dart';
 import 'package:cosine/pages/home_page.dart';
+import 'package:cosine/pages/suggestions.dart';
 import 'package:cosine/widgets/appBar.dart';
 import 'package:flutter/material.dart';
 
