@@ -12,7 +12,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'constants/routes.dart';
 
 
-const String  key="AIzaSyAheDFh1MmBOo946L7xlPe3NzsG6KYl5a8";
+const String  key="###########################";
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
  Gemini.init(apiKey: key);
