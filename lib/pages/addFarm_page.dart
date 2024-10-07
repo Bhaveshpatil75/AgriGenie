@@ -57,6 +57,7 @@ class _AddfarmPageState extends State<AddfarmPage> {
                 map.remove("name");
                 //log(map.toString());
                 await _databaseService.addFarm(_formKey.currentState!.fields["name"]!.value, map);
+                Navigator.pop(context);
               }
             }, child: Text("Create"))
           ],

@@ -47,9 +47,8 @@ Drawer MyDrawer(BuildContext context){
             child: ListTile(
               tileColor: Colors.deepPurple.shade100,
               title: Text("My details"),
-              onTap: ()async{
-                var data=await databaseService.getFarmeranswers();
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowDetails(data: data,)));
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowDetails()));
               },
             ),
           ),

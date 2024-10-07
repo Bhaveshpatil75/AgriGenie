@@ -1,6 +1,7 @@
 
 import 'dart:developer';
 import 'package:cosine/constants/routes.dart';
+import 'package:cosine/pages/show_details.dart';
 import 'package:cosine/services/auth/auth_service.dart';
 import 'package:cosine/services/database/database_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -63,7 +64,8 @@ class _AddFarmerPageState extends State<AddFarmerPage> {
                 if (_formKey.currentState!.isValid){
                   _formKey.currentState!.saveAndValidate();
                   await _databaseService.addFarmer(_formKey.currentState!.value);
-
+                  //Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowDetails()));
+                  Navigator.pop(context);
                 }
               }, child: Text("Submit")),
             ],

@@ -17,9 +17,9 @@ class DatabaseService{
          log(e.toString());
       }
    }
-   Future<Object?> getFarmeranswers()async{
-      DocumentSnapshot snapshot=await farmerDB.doc(uid).collection("questions").doc("answers").get();
-      return snapshot.data();
+
+   Stream<Map<String,dynamic>?> getFarmeranswers(){
+      return farmerDB.doc(uid).collection("questions").doc("answers").snapshots().map((snap)=>snap.data());
    }
    Future<void> addFarm(String name,Map<String,dynamic> map)async{
       try{

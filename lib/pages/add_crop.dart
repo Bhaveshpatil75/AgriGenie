@@ -1,4 +1,5 @@
 import 'package:cosine/constants/questions.dart';
+import 'package:cosine/pages/show_each_farm.dart';
 import 'package:cosine/services/auth/auth_service.dart';
 import 'package:cosine/services/database/database_service.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +29,10 @@ class _AddCropState extends State<AddCrop> {
       ),
       body: FormBuilder(
         key: _formKey,
-        child: Column(
+        child: ListView(
         children: [
-          FormBuilderTextField(name: "name",decoration: InputDecoration(hintText: cropQue[9]),initialValue: "1"),
-          FormBuilderTextField(name: "size",decoration: InputDecoration(hintText: cropQue[0]),initialValue: "1"),
+          FormBuilderTextField(name: "name",decoration: InputDecoration(hintText: cropQue[9])),
+          FormBuilderTextField(name: "size",decoration: InputDecoration(hintText: cropQue[0])),
           FormBuilderDateTimePicker(
             name: "planted_on",
             inputType: InputType.date,
@@ -60,11 +61,13 @@ class _AddCropState extends State<AddCrop> {
                 Map<String,dynamic> map=Map.from(_formKey.currentState!.value);
                 map.remove("name");
                 await _databaseService.addCrop(widget.farmName, _formKey.currentState!.fields["name"]!.value, map);
+                //Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowEachFarm(data: "data", farmName: widget.farmName)));
+                Navigator.pop(context);
               }
             }, child: Text("Add")),
           )
         ],
-      ),
+              ),
       ),
     );
   }

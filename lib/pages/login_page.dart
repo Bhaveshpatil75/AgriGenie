@@ -1,5 +1,6 @@
 
 import 'package:cosine/pages/demo.dart';
+import 'package:cosine/pages/door_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../constants/routes.dart';
@@ -93,7 +94,7 @@ class _LoginPage extends State<LoginPage> {
                             password: ps.text
                         );
                         if (AuthService.firebase().currentUser!.isEmailVerified) {
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>Demo()));
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>DoorPage()));
                         }
                         else{
                           await showErrorDialog(context, "Verify your Email first");

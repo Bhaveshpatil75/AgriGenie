@@ -29,7 +29,7 @@ class _SuggestionsState extends State<Suggestions> {
     log(locMap.toString());
     widget.geminiData+=await getWeather(locMap["latitude"]??0, locMap["longitude"]??0);
     log(widget.geminiData);
-    gemini.text("generate suggestions based on the farm related data i am providing,this is the data ${widget.geminiData}")
+    gemini.text("generate suggestions in hindi language based on the farm related data i am providing,this is the data ${widget.geminiData} at last consider myself as an uneducated farmer and try to be specific about your suggestions keep them according to the name of the crop provided and the location don't use non understandable words and make use of the name of the farm,crop and data provided above ")
         .then((value){
           msg=value?.content?.parts?.last.text ?? '';
           setState(() {

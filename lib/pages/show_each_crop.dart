@@ -13,6 +13,11 @@ class ShowEachCrop extends StatefulWidget {
 
 class _ShowEachCropState extends State<ShowEachCrop> {
   @override
+  void initState() {
+    widget.geminiData+=" crop name : ${widget.cropName}";
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -30,6 +35,7 @@ class _ShowEachCropState extends State<ShowEachCrop> {
             child: ElevatedButton(
               onPressed: () async{
                 Navigator.push(context, MaterialPageRoute(builder: (_)=>Suggestions(geminiData: widget.geminiData,)));
+                //Navigator.pop(context);
               },
               child: Text("Generate Content"),
             ),
