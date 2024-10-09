@@ -1,9 +1,11 @@
+import 'package:cosine/pages/addFarm_page.dart';
 import 'package:cosine/pages/add_crop.dart';
 import 'package:cosine/pages/show_each_crop.dart';
 import 'package:cosine/services/auth/auth_service.dart';
 import 'package:cosine/services/database/database_service.dart';
 import 'package:cosine/widgets/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ShowEachFarm extends StatefulWidget {
   dynamic data;
@@ -49,12 +51,22 @@ class _ShowEachFarmState extends State<ShowEachFarm> {
                         title: Text(farmList[index]),
                         tileColor: Colors.blueGrey[200],
                         leading: CircleAvatar(child: Text("${index + 1}"),),
-                        trailing: IconButton(onPressed: () async {
-                          await _databaseService.deleteCrop(
-                              widget.farmName, farmList[index]);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Deleted Successfully")));
-                        }, icon: Icon(Icons.delete),),
+                        trailing: SizedBox(
+                          width: 100,
+                          child: Row(
+                            children: [
+                              IconButton(onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (_)=>AddCrop(farmName: widget.farmName,cropName: farmList[index],)));
+                              }, icon:const  FaIcon(FontAwesomeIcons.pen)),
+                              IconButton(onPressed: () async {
+                                await _databaseService.deleteCrop(
+                                    widget.farmName, farmList[index]);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text("Deleted Successfully")));
+                              }, icon: Icon(Icons.delete),),
+                            ],
+                          ),
+                        ),
                         shape: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),

@@ -4,6 +4,7 @@ import 'package:cosine/services/auth/auth_service.dart';
 import 'package:cosine/services/database/database_service.dart';
 import 'package:cosine/widgets/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ShowFarms extends StatefulWidget {
    ShowFarms({super.key});
@@ -44,16 +45,26 @@ class _ShowFarmsState extends State<ShowFarms> {
                   ),
                   tileColor: Colors.blueGrey[200],
                   leading: CircleAvatar(child: Text("${index + 1}"),),
-                  trailing: IconButton(onPressed: () async {
-                    try {
-                      await _databaseService.deleteFarm(list[index]);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Farm deleted successfully")));
-                    }catch(e){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Deletion failed...")));
-                    }
-                  }, icon: Icon(Icons.delete),),
+                  trailing: SizedBox(
+                    width: 100,
+                    child: Row(
+                      children: [
+                        IconButton(onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>AddfarmPage(farmName: list[index],)));
+                        }, icon: FaIcon(FontAwesomeIcons.pen)),
+                        IconButton(onPressed: () async {
+                          try {
+                            await _databaseService.deleteFarm(list[index]);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Farm deleted successfully")));
+                          }catch(e){
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Deletion failed...")));
+                          }
+                        }, icon: Icon(Icons.delete),),
+                      ],
+                    ),
+                  ),
                   title: Text(list[index]),
                   onTap: () async {
                     var data = await _databaseService.getAfarm(list[index]);
