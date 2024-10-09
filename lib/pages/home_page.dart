@@ -1,3 +1,4 @@
+import 'package:cosine/widgets/myBottomNav.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -71,6 +72,7 @@ class _HomePageState extends State<HomePage> {
       )
       ,
       drawer: MyDrawer(context),
+      bottomNavigationBar: MyBottomNav(context),
     ):OfflinePage();
   }
 }

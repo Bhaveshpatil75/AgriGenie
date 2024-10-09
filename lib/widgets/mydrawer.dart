@@ -52,14 +52,6 @@ Drawer MyDrawer(BuildContext context){
               },
             ),
           ),
-          ListTile(
-            tileColor: Colors.deepPurple.shade100,
-            title: Text("My Farms"),
-            onTap: ()async{
-
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowFarms()));
-            },
-          ),
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:cosine/pages/login_page.dart';
 import 'package:cosine/pages/register_page.dart';
 import 'package:cosine/pages/splash_page.dart';
 import 'package:cosine/pages/verification_page.dart';
+import 'package:cosine/private/private.dart';
 import 'package:cosine/services/auth/auth_service.dart';
 import 'package:cosine/widgets/loading.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'constants/routes.dart';
 
 
-const String  key="###########################";
+const String  key=geminiKey;
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
  Gemini.init(apiKey: key);
