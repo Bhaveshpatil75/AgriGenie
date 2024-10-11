@@ -1,3 +1,10 @@
+
+import 'dart:developer';
+
+import 'package:cosine/services/auth/auth_service.dart';
+import 'package:cosine/services/database/database_service.dart';
+import 'package:cosine/services/database/models.dart';
+import 'package:cosine/widgets/loading.dart';
 import 'package:cosine/widgets/myBottomNav.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:async';
@@ -21,8 +28,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late StreamSubscription<List<ConnectivityResult>> subscription;
   late bool isConnected;
+  late DatabaseService _databaseService;
   @override
   void initState() {
+    _databaseService=DatabaseService(uid:AuthService.firebase().currentUser!.uid );
     isConnected=false;
     super.initState();
     requestNotificationPermission().then((_) {
@@ -60,15 +69,30 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Home Page"),
       ),
-      body:Column(
-        children: [
-          Center(
-              child: Text("Welcome...")
-          ),
-          ElevatedButton(onPressed: ()async{
-            NotificationService.showBigTextNotification(title: "title", body: "body", fln: flutterLocalNotificationsPlugin);
-          }, child: Text("send"))
-        ],
+      body:StreamBuilder<List<Post>>(
+        stream: _databaseService.showPosts(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState==ConnectionState.waiting){
+            return Loading();
+          }
+          else {
+            List<Post>? posts=snapshot.data;
+            return snapshot.hasData?
+                ListView.separated(
+                    itemBuilder: (context,index){
+                      return ListTile(
+                        title: Text(posts[index].title),
+                        subtitle: Text("By-${posts[index].owner}"),
+                        trailing: Text(posts[index].likes.toString()),
+                      );
+                    },
+                    separatorBuilder: (context,index){
+                      return Divider(thickness: 3,);
+                    },
+                    itemCount: posts!.length)
+                :Center(child: Text("No posts"));
+          }
+        }
       )
       ,
       drawer: MyDrawer(context),

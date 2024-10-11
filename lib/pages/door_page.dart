@@ -13,7 +13,7 @@ class DoorPage extends StatefulWidget {
 }
 
 class _DoorPageState extends State<DoorPage> {
-  var users=["FARMER","TOURIST","OTHERS"];
+  var users=["FARMER","OTHERS"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _DoorPageState extends State<DoorPage> {
           );
         }, separatorBuilder: (context,index){
           return Divider(thickness: 15,);
-        }, itemCount: 3)
+        }, itemCount: 2)
       ),
     );
   }
