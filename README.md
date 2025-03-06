@@ -1,16 +1,7 @@
-# cosine
+## cosine
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Provides Firebase Authentication with Email and Password with Email Verification, Password Reset.
+- Collects data about family conditions, farm and crops from farmer.
+- Access real time location using geolocator for deriving weather conditions and forecasting using 
+  OpenWeather API and provides all this derived and collected data to Gemini to generate suggestions.
+- Enables local notifications and Handles app’s view in offline mode.	
