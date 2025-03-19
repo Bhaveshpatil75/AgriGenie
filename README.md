@@ -1,5 +1,6 @@
 ## cosine
 
+- A FLutter based Application for Smart Agriculture.
 - Provides Firebase Authentication with Email and Password with Email Verification, Password Reset.
 - Collects data about family conditions, farm and crops from farmer.
 - Access real time location using geolocator for deriving weather conditions and forecasting using 
