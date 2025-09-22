@@ -1,4 +1,4 @@
-## cosine
+## AgriGenie
 
 - A FLutter based Application for Smart Agriculture.
 - Provides Firebase Authentication with Email and Password with Email Verification, Password Reset.
